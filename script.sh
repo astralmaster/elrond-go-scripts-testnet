@@ -114,7 +114,7 @@ case "$1" in
             esac
   
         else
-          echo -e "${RED}You do not have the latest version of the elrond-go-scripts-mainnet !!!${NC}"
+          echo -e "${RED}You do not have the latest version of the elrond-go-scripts-testnet !!!${NC}"
           echo -e "${RED}Please run ${CYAN}./script.sh github_pull${RED} before running the upgrade command...${NC}"
        fi
   ;;
@@ -264,14 +264,14 @@ case "$1" in
   echo -e "${GREEN}---> Fetching the latest version of the sripts...${NC}"
   echo -e
   #First let's check if the repo is accesible
-  REPO_STATUS=$(curl -I "https://github.com/ElrondNetwork/elrond-go-scripts-mainnet" 2>&1 | awk '/HTTP\// {print $2}')
+  REPO_STATUS=$(curl -I "https://github.com/ElrondNetwork/elrond-go-scripts-testnet" 2>&1 | awk '/HTTP\// {print $2}')
   cd $SCRIPTPATH
   if [ "$REPO_STATUS" -eq "200" ]; then
                                 #Now let's fetch the latest version of the scripts
-                                echo -e "${GREEN}---> elrond-go-scripts-mainnet is reachable ! Pulling latest version...${NC}"
+                                echo -e "${GREEN}---> elrond-go-scripts-testnet is reachable ! Pulling latest version...${NC}"
                                 git reset --hard HEAD
                                 git pull
-                      else echo -e "${RED}---> elrond-go-scripts-mainnet on Github not reachable !${NC}"
+                      else echo -e "${RED}---> elrond-go-scripts-testnet on Github not reachable !${NC}"
               fi
   #Restore custom variables after repo pull
   echo -e "${GREEN}---> Restoring your config files${NC}"
