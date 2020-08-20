@@ -61,7 +61,7 @@ case "$1" in
   paths
   #Check to see if scripts have been updated
   cd $SCRIPTPATH
-  CURRENT_SCRIPTS_COMMIT=$(git show | grep commit | awk '{print $2}')
+  CURRENT_SCRIPTS_COMMIT=$(git show | grep -m 1 commit | awk '{print $2}')
   
       if [ $LATEST_SCRIPTS_COMMIT == $CURRENT_SCRIPTS_COMMIT ]; then
           echo "Strings are equal"
