@@ -165,7 +165,9 @@ case $opt in
                         sudo systemctl stop elrond-node-$UPDATEINDEX
                         update
                         mv $UPDATEWORKDIR/config/prefs.toml.save $UPDATEWORKDIR/config/prefs.toml
-                        sudo systemctl start elrond-node-$UPDATEINDEX
+                        echo -e
+                        echo -e "${GREEN}--> elrond-node-$UPDATEINDEX upgraded. Don't forget to start it...${NC}"
+                        echo -e
                     done
                   ;;
             
