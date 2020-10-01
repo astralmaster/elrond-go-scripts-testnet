@@ -130,7 +130,7 @@ case $opt in
   
       if [ $LATEST_SCRIPTS_COMMIT == $CURRENT_SCRIPTS_COMMIT ]; then
           echo "Strings are equal"
-          cd $GOPATH/src/github.com/ElrondNetwork/elrond-config-mainnet 
+          cd $GOPATH/src/github.com/ElrondNetwork/elrond-config-testnet
           INSTALLED_CONFIGS=$(git status | grep HEAD | awk '{print $4}')
           echo -e
           echo -e "${GREEN}Local version for configs: ${CYAN}tags/$INSTALLED_CONFIGS${NC}"
