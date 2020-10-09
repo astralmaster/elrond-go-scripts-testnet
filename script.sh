@@ -166,7 +166,7 @@ case $opt in
                         update
                         mv $UPDATEWORKDIR/config/prefs.toml.save $UPDATEWORKDIR/config/prefs.toml
                         echo -e
-                        echo -e "${GREEN}--> elrond-node-$UPDATEINDEX upgraded. Don't forget to start it...${NC}"
+                        echo -e "${CYAN}--> elrond-node-$UPDATEINDEX upgraded. Don't forget to start it...${NC}"
                         echo -e
                     done
                   ;;
