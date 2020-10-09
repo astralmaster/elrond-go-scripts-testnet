@@ -181,7 +181,7 @@ case $opt in
             esac
   
         else
-          echo -e "${RED}You do not have the latest version of the elrond-go-scripts-mainnet !!!${NC}"
+          echo -e "${RED}You do not have the latest version of the elrond-go-scripts-testnet !!!${NC}"
           echo -e "${RED}Please run ${CYAN}./script.sh github_pull${RED} before running the upgrade command...${NC}"
        fi
   break
