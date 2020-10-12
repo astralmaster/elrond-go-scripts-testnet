@@ -13,20 +13,8 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 source $SCRIPTPATH/config/variables.cfg
 source $SCRIPTPATH/config/functions.cfg
 
-echo -e
-echo -e "${CYAN}Elrond MainNet scripts options:${NC}"
-echo -e
-echo -e "${GREEN}1) ${CYAN}install${GREEN} - Regular install process for validator nodes${NC}"
-echo -e "${GREEN}2) ${CYAN}observers${GREEN} - Observers and proxy install option${NC}"
-echo -e "${GREEN}3) ${CYAN}upgrade${GREEN} - Run the upgrade process for the installed nodes${NC}"
-echo -e "${GREEN}4) ${CYAN}upgrade_proxy${GREEN} - Run the upgrade process for the installed proxy${NC}"
-echo -e "${GREEN}5) ${CYAN}remove_db${GREEN} - Remove the nodes databases (individual node selection)${NC}"
-echo -e "${GREEN}6) ${CYAN}start${GREEN} - Start all the installed nodes (will also start elrond-proxy if installed)${NC}"
-echo -e "${GREEN}7) ${CYAN}stop${GREEN} - Stop all the installed nodes (will also stop elrond-proxy if installed)${NC}"
-echo -e "${GREEN}8) ${CYAN}cleanup${GREEN} - Remove everything from the host${NC}"
-echo -e "${GREEN}9) ${CYAN}github_pull${GREEN} - Get latest version of scripts from github (with variables backup)${NC}"
-echo -e "${GREEN}10) ${CYAN}quit${GREEN} - Exit this menu${NC}"
-echo -e
+#Show all the script options
+show_menu
 
 COLUMNS=12
 PS3="Please select an action:"
@@ -74,7 +62,11 @@ case $opt in
        done
        
   sudo chown -R $CUSTOM_USER: $CUSTOM_HOME/elrond-nodes
-  break
+  
+  echo -e
+  read -n 1 -s -r -p "  Process finished. Press any key to continue..."
+  clear
+  show_menu
   ;;
 
 'observers')
@@ -119,7 +111,11 @@ case $opt in
   #Install & configure elrond-proxy
   elrond_proxy
   proxy_config
-  break
+
+  echo -e
+  read -n 1 -s -r -p "  Process finished. Press any key to continue..."
+  clear
+  show_menu
   ;;
 
 'upgrade')
@@ -184,7 +180,11 @@ case $opt in
           echo -e "${RED}You do not have the latest version of the elrond-go-scripts-testnet !!!${NC}"
           echo -e "${RED}Please run ${CYAN}./script.sh github_pull${RED} before running the upgrade command...${NC}"
        fi
-  break
+  
+  echo -e
+  read -n 1 -s -r -p "  Process finished. Press any key to continue..."
+  clear
+  show_menu
   ;;
 
 'upgrade_proxy')
@@ -222,7 +222,11 @@ case $opt in
           echo -e "${GREEN}I'll take that as a no then... moving on...${NC}"
           ;;
     esac
-  break
+  
+  echo -e
+  read -n 1 -s -r -p "  Process finished. Press any key to continue..."
+  clear
+  show_menu
   ;;
 
 'remove_db')
@@ -260,7 +264,11 @@ case $opt in
            echo -e "${GREEN}I'll take that as a no then... moving on...${NC}"
             ;;
       esac
-  break
+  
+  echo -e
+  read -n 1 -s -r -p "  Process finished. Press any key to continue..."
+  clear
+  show_menu
   ;;
 
 'start')
@@ -279,7 +287,11 @@ case $opt in
                                         echo -e
                                         sudo systemctl start elrond-proxy
             fi
-  break
+  
+  echo -e
+  read -n 1 -s -r -p "  Process finished. Press any key to continue..."
+  clear
+  show_menu
   ;;
 
 'stop')
@@ -298,7 +310,11 @@ case $opt in
                                         echo -e
                                         sudo systemctl stop elrond-proxy
             fi
-  break
+  
+  echo -e
+  read -n 1 -s -r -p "  Process finished. Press any key to continue..."
+  clear
+  show_menu
   ;;
 
 'cleanup')
@@ -363,7 +379,11 @@ case $opt in
            echo -e "${GREEN}I'll take that as a no then... moving on...${NC}"
             ;;
       esac
-  break
+  
+  echo -e
+  read -n 1 -s -r -p "  Process finished. Press any key to continue..."
+  clear
+  show_menu
   ;;
 
 'github_pull')
@@ -387,7 +407,11 @@ case $opt in
   variables_restore
   echo -e "${GREEN}---> Finished fetching scripts...${NC}"
   echo -e
-  break
+
+  echo -e
+  read -n 1 -s -r -p "  Process finished. Press any key to continue..."
+  clear
+  show_menu
   ;;
 
 'get_logs')
@@ -412,7 +436,11 @@ case $opt in
 
   #Compress the logs and erase files
   cd $CUSTOM_HOME/elrond-logs/ && tar -zcvf elrond-node-logs-$LOGSTIME.tar.gz *.log && rm *.log
-  break 
+  
+  echo -e
+  read -n 1 -s -r -p "  Process finished. Press any key to continue..."
+  clear
+  show_menu
   ;;
 
 'quit')
