@@ -247,7 +247,7 @@ case $opt in
                sudo systemctl stop elrond-node-$UPDATEINDEX
                cleanup
 
-               echo -e "${RED}Warning! The nodes will not be automatically restarted after the DB is removed!"
+               echo -e "${RED}Warning! The nodes will not be automatically restarted after the DB is removed!${NC}"
                echo -e
            done
             ;;
