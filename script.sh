@@ -18,7 +18,7 @@ show_menu
 
 COLUMNS=12
 PS3="Please select an action:"
-options=("install" "observers" "upgrade" "upgrade_proxy" "remove_db" "start" "stop" "cleanup" "github_pull" "quit")
+options=("install" "observers" "upgrade" "upgrade_proxy" "remove_db" "start" "stop" "cleanup" "github_pull" "get_logs" "quit")
 
 select opt in "${options[@]}"
 do
@@ -437,6 +437,8 @@ case $opt in
   #Compress the logs and erase files
   cd $CUSTOM_HOME/elrond-logs/ && tar -zcvf elrond-node-logs-$LOGSTIME.tar.gz *.log && rm *.log
   
+  echo -e
+  echo -e "${GREEN}---> Logs have been stored in the ${CYAN}~/elrond-logs${GREEN} folder...${NC}"
   echo -e
   read -n 1 -s -r -p "  Process finished. Press any key to continue..."
   clear
