@@ -1,4 +1,4 @@
-# Elrond Node Deploy Scripts - Mainnet
+# Elrond Node Deploy Scripts - Testnet
 
 ## INTRODUCTION
 
