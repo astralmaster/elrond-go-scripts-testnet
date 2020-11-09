@@ -14,7 +14,23 @@ source $SCRIPTPATH/config/variables.cfg
 source $SCRIPTPATH/config/functions.cfg
 source $SCRIPTPATH/config/menu_functions.cfg
 
+#Check if there are newer versions of the scripts available
+cd $SCRIPTPATH
+CURRENT_SCRIPTS_COMMIT=$(git show | grep commit | awk '{print $2}')
 
+if [ $LATEST_SCRIPTS_COMMIT != $CURRENT_SCRIPTS_COMMIT ]; then
+  echo -e 
+  read -p "You aren't running the current versions of the scripts. Are you sure you want to continue ? (Yy/Nn)" yn
+  echo -e
+
+  case $yn in
+        [Yy]* ) ;;
+        [Nn]* ) echo "Ok.Exiting."; exit;;
+        * ) echo "Please answer Yy / Nn ..."; exit;;
+    esac
+fi
+
+#See if the user has passed any command line arguments and if not show the menu
 if [ $# -eq 0 ]
   then
 
@@ -30,7 +46,7 @@ if [ $# -eq 0 ]
   case $opt in
 
   'install')
-    menu_install
+    install
     echo -e
     read -n 1 -s -r -p "  Process finished. Press any key to continue..."
     clear
@@ -94,7 +110,7 @@ if [ $# -eq 0 ]
     ;;
 
   'cleanup')
-    cleanup_menu
+    cleanup
     echo -e
     read -n 1 -s -r -p "  Process finished. Press any key to continue..."
     clear
@@ -165,7 +181,7 @@ case "$1" in
   ;;
 
 'cleanup')
-  cleanup_menu
+  cleanup
   ;;
 
 'github_pull')
