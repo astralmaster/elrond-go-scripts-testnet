@@ -30,7 +30,7 @@ if [ $# -eq 0 ]
   case $opt in
 
   'install')
-    install
+    menu_install
     echo -e
     read -n 1 -s -r -p "  Process finished. Press any key to continue..."
     clear
