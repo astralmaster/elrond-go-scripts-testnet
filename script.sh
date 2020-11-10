@@ -38,7 +38,7 @@ if [ $# -eq 0 ]
 
   COLUMNS=12
   PS3="Please select an action:"
-  options=("install" "observers" "upgrade" "upgrade_proxy" "upgrade_squad" "remove_db" "start" "stop" "cleanup" "github_pull" "get_logs" "quit")
+  options=("install" "observing-squad" "upgrade" "upgrade_proxy" "upgradesquad" "remove_db" "start" "stop" "cleanup" "github_pull" "get_logs" "quit")
 
   select opt in "${options[@]}"
   do
@@ -53,7 +53,7 @@ if [ $# -eq 0 ]
     show_menu
     ;;
 
-  'observers')
+  'observing-squad')
     observers
     echo -e
     read -n 1 -s -r -p "  Process finished. Press any key to continue..."
@@ -151,7 +151,7 @@ case "$1" in
   install
   ;;
 
-'observers')
+'observing-squad')
   observers
   ;;
 
