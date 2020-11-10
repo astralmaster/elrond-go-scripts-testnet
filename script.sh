@@ -53,7 +53,7 @@ if [ $# -eq 0 ]
     show_menu
     ;;
 
-  'observing-squad')
+  'observing_squad')
     observers
     echo -e
     read -n 1 -s -r -p "  Process finished. Press any key to continue..."
@@ -151,7 +151,7 @@ case "$1" in
   install
   ;;
 
-'observing-squad')
+'observing_squad')
   observers
   ;;
 
