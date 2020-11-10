@@ -18,7 +18,7 @@ source $SCRIPTPATH/config/menu_functions.cfg
 cd $SCRIPTPATH
 CURRENT_SCRIPTS_COMMIT=$(git show | grep commit | awk '{print $2}')
 
-if [ $LATEST_SCRIPTS_COMMIT != $CURRENT_SCRIPTS_COMMIT ]; then
+if [ "$LATEST_SCRIPTS_COMMIT" != "$CURRENT_SCRIPTS_COMMIT" ]; then
   echo -e 
   read -p "You aren't running the current versions of the scripts. Are you sure you want to continue ? (Yy/Nn)" yn
   echo -e
@@ -146,7 +146,6 @@ if [ $# -eq 0 ]
 
 else
 
-echo "Arguments supplied"
 case "$1" in
 'install')
   install
