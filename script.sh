@@ -38,7 +38,7 @@ if [ $# -eq 0 ]
 
   COLUMNS=12
   PS3="Please select an action:"
-  options=("install" "observing-squad" "upgrade" "upgrade_proxy" "upgradesquad" "remove_db" "start" "stop" "cleanup" "github_pull" "get_logs" "quit")
+  options=("install" "observing_squad" "upgrade" "upgrade_proxy" "upgradesquad" "remove_db" "start" "stop" "cleanup" "github_pull" "get_logs" "quit")
 
   select opt in "${options[@]}"
   do
